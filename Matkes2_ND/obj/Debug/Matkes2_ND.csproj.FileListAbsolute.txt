@@ -1,0 +1,12 @@
+D:\IM\programavimas\Matkes2_ND\Matkes2_ND\bin\Debug\Matkes2_ND.exe.config
+D:\IM\programavimas\Matkes2_ND\Matkes2_ND\bin\Debug\Matkes2_ND.exe
+D:\IM\programavimas\Matkes2_ND\Matkes2_ND\bin\Debug\Matkes2_ND.pdb
+D:\IM\programavimas\Matkes2_ND\Matkes2_ND\obj\Debug\Matkes2_ND.csprojAssemblyReference.cache
+D:\IM\programavimas\Matkes2_ND\Matkes2_ND\obj\Debug\Matkes2_ND.exe
+D:\IM\programavimas\Matkes2_ND\Matkes2_ND\obj\Debug\Matkes2_ND.pdb
+C:\Users\Zygis\Desktop\Matkes2_ND\Matkes2_ND\bin\Debug\Matkes2_ND.exe.config
+C:\Users\Zygis\Desktop\Matkes2_ND\Matkes2_ND\bin\Debug\Matkes2_ND.exe
+C:\Users\Zygis\Desktop\Matkes2_ND\Matkes2_ND\bin\Debug\Matkes2_ND.pdb
+C:\Users\Zygis\Desktop\Matkes2_ND\Matkes2_ND\obj\Debug\Matkes2_ND.csprojAssemblyReference.cache
+C:\Users\Zygis\Desktop\Matkes2_ND\Matkes2_ND\obj\Debug\Matkes2_ND.exe
+C:\Users\Zygis\Desktop\Matkes2_ND\Matkes2_ND\obj\Debug\Matkes2_ND.pdb

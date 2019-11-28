@@ -16,3 +16,9 @@ C:\Users\Zygis\Desktop\test\repos\Matkes2ND\Matkes2_ND\bin\Debug\Matkes2_ND.pdb
 C:\Users\Zygis\Desktop\test\repos\Matkes2ND\Matkes2_ND\obj\Debug\Matkes2_ND.csprojAssemblyReference.cache
 C:\Users\Zygis\Desktop\test\repos\Matkes2ND\Matkes2_ND\obj\Debug\Matkes2_ND.exe
 C:\Users\Zygis\Desktop\test\repos\Matkes2ND\Matkes2_ND\obj\Debug\Matkes2_ND.pdb
+C:\Users\User\Desktop\mt\Matkes2_ND\bin\Debug\Matkes2_ND.exe.config
+C:\Users\User\Desktop\mt\Matkes2_ND\bin\Debug\Matkes2_ND.exe
+C:\Users\User\Desktop\mt\Matkes2_ND\bin\Debug\Matkes2_ND.pdb
+C:\Users\User\Desktop\mt\Matkes2_ND\obj\Debug\Matkes2_ND.csprojAssemblyReference.cache
+C:\Users\User\Desktop\mt\Matkes2_ND\obj\Debug\Matkes2_ND.exe
+C:\Users\User\Desktop\mt\Matkes2_ND\obj\Debug\Matkes2_ND.pdb

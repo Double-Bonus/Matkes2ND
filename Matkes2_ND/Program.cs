@@ -79,6 +79,7 @@ namespace Matkes2_ND
 
 
             double vid = vidurkis(skaiciai);
+            Console.WriteLine("VIDURKIS:");
             Console.WriteLine(vid);
 
 
@@ -104,9 +105,10 @@ namespace Matkes2_ND
             Console.WriteLine(maziausias);
 
 
-
+            //AR TOKIA TORI BUTI???????????
             //Nepataisyta
             double disp = dispersija(skaiciai, vid);
+            Console.WriteLine("DISPERSIJA: " + disp);
 
             //Imties standartinis nuokrypis
             double imties_nuokrypis = Math.Sqrt(disp);
@@ -117,7 +119,27 @@ namespace Matkes2_ND
             intervaloIlgioNustatymas(maziausias, didziausias, out intervaloPradzia, out intervaloPabaiga, out intervaloIlgis);
 
 
+            //GAL I INT PERDARYTI
+            double[] IntervaloDazniai = new double[C_Inervalu_skaicius];
+            IntervaloDazniai = RanstiIntervaliniuDažnius(skirtingiSkaiciai, dazniai, intervaloPradzia, intervaloPabaiga, intervaloIlgis);
 
+            //PERDARYTI!!!!!!!
+            double[] IntervaloSantykiniaDazniai = new double[C_Inervalu_skaicius];
+            for (int i = 0; i < C_Inervalu_skaicius; i++)
+            {
+                IntervaloSantykiniaDazniai[i] = IntervaloDazniai[i]/100;
+
+            }
+
+
+            double grupuotuVid;
+            grupuotuVid = GrupuotuDuomenuVidurkis(intervaloPradzia, intervaloPabaiga, intervaloIlgis, IntervaloDazniai);
+
+            Console.WriteLine("Grupuotu vidurkis: {0} ", grupuotuVid);
+
+            double grupuotuDisp;
+            grupuotuDisp = GrupuotuDuomenuDispersija(intervaloPradzia, intervaloPabaiga, intervaloIlgis, IntervaloDazniai, grupuotuVid);
+            Console.WriteLine("Grupuotu dispersija: {0} ", grupuotuDisp);
 
 
             Console.ReadKey();
@@ -314,6 +336,9 @@ namespace Matkes2_ND
                     Console.Write("Nuo {0:F2} iki {1:F2}", prad, pab);
                 }
 
+                Console.WriteLine("Ar tinkami intervalai? (ivesti y arba n)");
+                ats = Console.ReadKey().KeyChar;
+
             }
 
             
@@ -323,6 +348,70 @@ namespace Matkes2_ND
             inervalo_Ilgis = ilgis;
 
         }
+
+
+        public static double[] RanstiIntervaliniuDažnius(List<double> skirtinguSkaiciuListas, List<double> dazniai,  double intervaloPrazia,
+             double intervaloPabaiga,  double inervalo_Ilgis)
+        {
+            double[] intervaliniaiDazniai = new double[C_Inervalu_skaicius];
+            for (int i = 0; i < C_Inervalu_skaicius; i++)
+            {
+                double prad = intervaloPrazia + i * inervalo_Ilgis;
+                double pab = intervaloPrazia + i * inervalo_Ilgis + inervalo_Ilgis;
+
+                for (int j = 0; j < skirtinguSkaiciuListas.Count; j++)
+                {
+                    if (i != C_Inervalu_skaicius) 
+                    {
+                        if (skirtinguSkaiciuListas[j] >= prad && skirtinguSkaiciuListas[j] < pab)
+                        {
+                            intervaliniaiDazniai[i] += dazniai[j];
+                        }
+                    }
+                    else
+                    {
+                        if (skirtinguSkaiciuListas[j] > prad && skirtinguSkaiciuListas[j] <= intervaloPabaiga)
+                        {
+                            intervaliniaiDazniai[i] += dazniai[j];
+                        }
+                    }
+
+                }
+            }
+
+
+
+            return intervaliniaiDazniai;
+        }
+
+
+
+        public static double GrupuotuDuomenuVidurkis(double intervaloPrazia, double intervaloPabaiga, double inervalo_Ilgis, double[] intervaloDazniai)
+        {
+            double sum = 0;
+            for (int i = 0; i < C_Inervalu_skaicius; i++)
+            {
+                sum += (intervaloPrazia + i * inervalo_Ilgis + intervaloPrazia + i * inervalo_Ilgis + inervalo_Ilgis) * intervaloDazniai[i] / 2;
+            }
+
+            return (sum / CKiekis);
+        }
+
+
+        public static double GrupuotuDuomenuDispersija(double intervaloPrazia, double intervaloPabaiga, double inervalo_Ilgis, double[] intervaloDazniai, double drupuotu_vidurkis)
+        {
+            double sum = 0;
+            for (int i = 0; i < C_Inervalu_skaicius; i++)
+            {
+                sum += (Math.Pow( (((intervaloPrazia + i * inervalo_Ilgis  +  intervaloPrazia + i * inervalo_Ilgis + inervalo_Ilgis) / 2) - drupuotu_vidurkis), 2)* intervaloDazniai[i]);
+            }
+
+
+            return (sum / (CKiekis-1)) ;
+        }
+
+
+
 
     }
 }

@@ -114,10 +114,9 @@ namespace Matkes2_ND
             double intervaloPabaiga;
             double intervaloIlgis;
 
-            intervaloIlgioNustatymas(maziausias, didziausias, out intervaloPradzia, ref intervaloPabaiga, ref intervaloIlgis);
+            intervaloIlgioNustatymas(maziausias, didziausias, out intervaloPradzia, out intervaloPabaiga, out intervaloIlgis);
 
-            public static void intervaloIlgioNustatymas(double maziausias, double didziausias, ref double intervaloPrazia,
-           ref double intervaloPabaiga, ref double inervalo_Ilgis)
+
 
 
 
@@ -271,36 +270,57 @@ namespace Matkes2_ND
             //O jeigu max == 140.00
             double maksimali = Math.Ceiling(max);
 
-            return (maksimali - minimali) / C_Inervalu_skaicius;
+            return (maksimali - minimali) / (C_Inervalu_skaicius+1);
 
         }
 
 
-        public static void intervaloIlgioNustatymas(double maziausias, double didziausias, ref double intervaloPrazia,
-            ref double intervaloPabaiga, ref  double inervalo_Ilgis)
+        public static void intervaloIlgioNustatymas(double maziausias, double didziausias, out double intervaloPrazia,
+            out double intervaloPabaiga, out double inervalo_Ilgis)
         {
 
             //NEGRAZUS INTERVAL ILGIAI
             double ilgis = intervaloIlgis(maziausias, didziausias);
 
             char ats;
-            do
-            {
-                Console.WriteLine("Ar tinkami intervalai? (ivesti y arba n)");
-                for (int i = 0; i < CKiekis; i++)
+            
+                
+                intervaloPrazia = maziausias;
+                intervaloPabaiga = maziausias + C_Inervalu_skaicius;
+                for (int i = 0; i < C_Inervalu_skaicius; i++)
                 {
                     double prad = maziausias + i * ilgis;
                     double pab = maziausias + i * ilgis + ilgis;
-                    Console.Write("Nuo {0:F2} iki {1:F2}"  , prad);
+                    Console.Write("Nuo {0:F2} iki {1:F2}"  , prad, pab);
                 }
 
-                ats = Console.ReadKey().KeyChar;
+            Console.WriteLine("Ar tinkami intervalai? (ivesti y arba n)");
+            ats = Console.ReadKey().KeyChar;
+            if (ats == 'n')
+            {
+                Console.WriteLine("Iveskite intervalo pradzia");
+                intervaloPrazia = double.Parse( Console.ReadLine());
 
-            } while (ats == 'n');
+                Console.WriteLine("Iveskite intervalo pabaiga");
+                intervaloPabaiga = double.Parse(Console.ReadLine());
+
+                ilgis = (intervaloPabaiga - intervaloPrazia) / C_Inervalu_skaicius;
+
+
+                for (int i = 0; i < C_Inervalu_skaicius; i++)
+                {
+                    double prad = maziausias + i * ilgis;
+                    double pab = maziausias + i * ilgis + ilgis;
+                    Console.Write("Nuo {0:F2} iki {1:F2}", prad, pab);
+                }
+
+            }
+
+            
 
 
 
-
+            inervalo_Ilgis = ilgis;
 
         }
 
